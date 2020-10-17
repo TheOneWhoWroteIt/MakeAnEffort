@@ -4,3 +4,8 @@ spring:
     password: postgres
     url: jdbc:postgresql://localhost:5434/makeaneffort
     driver-class-name: org.postgresql.Driver
+
+  jpa:
+    generate-ddl: true
+    show-sql: true
+
