@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 5
+      author: I
+
+      sqlFile:
+        dbms: postgresql
+        encoding: utf8
+        endDelimiter: \nGO
+        relativeToChangelogFile: true
+        splitStatements: true
+        stripComments: true
+        path: 01-create_chema_app.sql
+
+
+     rollback:
+      sqlFile:
+        dbms: postgresql
+        encoding: utf8
+        endDelimiter: \nGO
+        relativeToChangelogFile: true
+        splitStatements: true
+        stripComments: true
+        path: 01-drop_chema_app.sql

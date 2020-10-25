@@ -1,3 +1,6 @@
+liquibase:
+  change-log: classpath:db/changelog/db.changelog-master.yaml
+
 spring:
   datasource:
     username: postgres
@@ -6,6 +9,10 @@ spring:
     driver-class-name: org.postgresql.Driver
 
   jpa:
-    generate-ddl: true
     show-sql: true
+    hibernate:
+      ddl-auto: validate
+
+  liquibase:
+    change-log: classpath:db/changelog/db.changelog-master.yaml
 
