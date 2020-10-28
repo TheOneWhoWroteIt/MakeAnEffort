@@ -13,7 +13,7 @@ databaseChangeLog:
         path: 01-create_chema_app.sql
 
 
-     rollback:
+  - rollback:
       sqlFile:
         dbms: postgresql
         encoding: utf8

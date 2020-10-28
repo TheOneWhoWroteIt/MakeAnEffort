@@ -13,8 +13,8 @@ databaseChangeLog:
         path: 01-create_user_table.sql
 
 
-      rollback:
-        sqlFile:
+    rollback:
+      sqlFile:
         dbms: postgresql
         encoding: utf8
         endDelimiter: \nGO

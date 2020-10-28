@@ -5,5 +5,5 @@ databaseChangeLog:
       tag: db_create
 
   - include:
-    file: v-1.0.0/db.changelog-v.1.0.0.yml
-    relativeToChangeLogFile: true
+      file: db/changelog/v-1.0.0/db.changelog-v.1.0.0.yml
+      relativeToChangeLogFile: true

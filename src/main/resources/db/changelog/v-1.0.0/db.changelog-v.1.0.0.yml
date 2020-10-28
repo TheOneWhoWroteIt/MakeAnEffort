@@ -1,8 +1,7 @@
 databaseChangeLog:
   - include:
-      file: 01-changeset-create_shema.yml
+      file: db/changelog/v-1.0.0/01-changeset-create_shema.yml
       relativeToChangeLogFile: true
-
   - include:
-      file: 10-changeset-create_user_table.yml
+      file: db/changelog/v-1.0.0/10-changeset-create_user_table.yml
       relativeToChangeLogFile: true
