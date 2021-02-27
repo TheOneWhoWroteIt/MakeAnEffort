@@ -22,7 +22,7 @@ public class UserDTO {
     @Length(min = 6, max = 18)
     private String password;
     @NotBlank
-    private String password_return;
+    private String passwordRepeat;
 
 
 }
