@@ -9,8 +9,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.csrf.CsrfFilter;
+import org.springframework.web.filter.CharacterEncodingFilter;
 
 import javax.sql.DataSource;
+import java.nio.charset.StandardCharsets;
 
 @Configuration
 @EnableWebSecurity
@@ -29,9 +32,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
+        http.addFilterBefore(new CharacterEncodingFilter(StandardCharsets.UTF_8.name()), CsrfFilter.class);
+
         http
                 .authorizeRequests()
-                .antMatchers("/registration", "/login").permitAll()
+                .antMatchers("/registration", "/login" ).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin()
@@ -53,7 +59,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 //.passwordEncoder(NoOpPasswordEncoder.getInstance())
                 .usersByUsernameQuery("select login, password, active from app.user_app where login=?")
                 .authoritiesByUsernameQuery("select login, 'USER_ROLE' from app.user_app where login=?");
-                /*.authoritiesByUsernameQuery("select u.login, ur.roles from user_app u inner join user_role ur on u.id = ur.user_id where u.login=?");*/
+                //.authoritiesByUsernameQuery("select u.login, ur.roles from user_app u inner join user_role ur on u.id = ur.user_id where u.login=?");
 
     }
 

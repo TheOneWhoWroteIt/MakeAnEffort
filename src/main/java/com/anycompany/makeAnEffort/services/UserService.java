@@ -26,7 +26,7 @@ public class UserService {
                             userDTO.getLogin(),
                             password,
                             userDTO.getEmail(),
-                            false,
+                            true,
                             Role.USER);
 
 
@@ -35,6 +35,12 @@ public class UserService {
             userRepository.save(user);
 
         }
+
+    }
+
+    public User findByLogin(String login){
+
+        return userRepository.findByLogin(login);
 
     }
 }
