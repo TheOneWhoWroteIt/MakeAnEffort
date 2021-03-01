@@ -1,6 +1,7 @@
 package com.anycompany.makeAnEffort.entities;
 
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.Email;
@@ -8,6 +9,7 @@ import javax.validation.constraints.NotBlank;
 
 @Data
 @Entity
+@NoArgsConstructor
 @Table(schema = "app", name = "user_app")
 public class User {
 
@@ -31,11 +33,11 @@ public class User {
     @Column(name = "email", nullable = false, length = 128)
     private String email;
 
-    @NotBlank
+    //@NotBlank
     @Column(name = "active", nullable = false)
     private boolean active;
 
-    @NotBlank
+    //@NotBlank
     @Column(name = "user_role", nullable = false)
     private Role USER_ROLE;
 
@@ -43,8 +45,8 @@ public class User {
                 @NotBlank String login,
                 @NotBlank String password,
                 @Email String email,
-                @NotBlank boolean active,
-                @NotBlank Role USER_ROLE) {
+                /*@NotBlank*/ boolean active,
+                /*@NotBlank*/ Role USER_ROLE) {
         this.name = name;
         this.login = login;
         this.password = password;
